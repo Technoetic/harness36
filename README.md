@@ -1,17 +1,19 @@
 <div align="center">
 
-# harness20
+# harness14
+
+공개 저장소 이름은 기본14단계에 맞춰 `harness14`로 변경했습니다. 설치 이름은 `harness20@harness20`이며 `/harness20:webapp`·`$harness20:webapp` 등 기존 명령과 실행 기록을 유지합니다. 아래 설치 안내의 GitHub 주소는 새 저장소를 가리킵니다.
 
 ### 한 줄 요청 → 기획부터 14 step 자율주행 → 인터랙티브 웹 튜토리얼 1편
 
-최신 릴리스: **[v4.2.0](https://github.com/Technoetic/harness20/releases/tag/v4.2.0)**. 새 실행은 기본14단계와 Tower 기반 조건 고정·오프라인 비교·민감 본문 없는 이력 추출을 제공합니다. 실제 검증 범위와 결과는 [릴리스 안내](docs/releases/v4.2.0.md)와 [검증 JSON](https://github.com/Technoetic/harness20/releases/download/v4.2.0/verification.json)에서 확인합니다.
+최신 릴리스: **[v4.2.0](https://github.com/Technoetic/harness14/releases/tag/v4.2.0)**. 새 실행은 기본14단계와 Tower 기반 조건 고정·오프라인 비교·민감 본문 없는 이력 추출을 제공합니다. 실제 검증 범위와 결과는 [릴리스 안내](docs/releases/v4.2.0.md)와 [검증 JSON](https://github.com/Technoetic/harness14/releases/download/v4.2.0/verification.json)에서 확인합니다.
 
 **`/harness20:webapp 논문 트렌드 분석 대시보드`** 한 줄을 던지면 요구사항 기획부터 14단계 완료나 명명된 멈춤 전까지 이어가는 결정론적 절차가 가동된다.<br/>
 모델을 똑똑하게 만드는 대신 **모델이 놓을 트랙을 좁힌다**.
 
 <br/>
 
-[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-191919?style=for-the-badge&logo=anthropic&logoColor=white)](https://github.com/Technoetic/harness20)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-191919?style=for-the-badge&logo=anthropic&logoColor=white)](https://github.com/Technoetic/harness14)
 [![License MIT](https://img.shields.io/badge/License-MIT-A855F7?style=for-the-badge)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows_·_macOS_·_Linux-0EA5E9?style=for-the-badge&logo=windows&logoColor=white)](#-claude-code-설치)
 [![Hooks](https://img.shields.io/badge/Hooks-28_files-F59E0B?style=for-the-badge)](hooks/)
@@ -25,7 +27,7 @@
 
 <img src="docs/screenshots/hero-cast.svg" width="90%" alt="harness50 자율주행 데모 — /webapp 한 줄 입력으로 step이 자동 진행되는 터미널 시뮬레이션 (legacy 107단계 완주 기록)"/>
 
-<sub>데모 캐스트는 legacy 107단계 완주 실기록이다(원본은 <a href="https://github.com/Technoetic/harness20/tree/legacy-107"><code>legacy-107</code></a> 태그). v2.0에서 50단계로 줄였고, v2.13.0의 새 실행은 조사 14단계를 제거한 36단계를 사용한다.</sub>
+<sub>데모 캐스트는 legacy 107단계 완주 실기록이다(원본은 <a href="https://github.com/Technoetic/harness14/tree/legacy-107"><code>legacy-107</code></a> 태그). v2.0에서 50단계로 줄였고, v2.13.0의 새 실행은 조사 14단계를 제거한 36단계를 사용한다.</sub>
 
 </div>
 
@@ -62,7 +64,7 @@ synthetic fixture, not an LLM or business-performance benchmark.
 
 벡터 검색·임베딩·시맨틱 캐시·모델 학습 데이터 수집은 현재 플러그인에 없습니다. 추가할 때는 별도 위협 모델과 검증이 필요합니다. OS 권한·네트워크 접근 정책·서비스 과금 상한·비공개 업무 정보 보호와 변경된 훅의 수동 신뢰 검토는 호스트·운영자가 관리합니다.
 
-**v4.0.0 당시 검증 근거:** 릴리스 커밋 `a6966675cb1f8dc90a2eb8d533bcb7f2664ec6e4`과 동일한 소스 트리를 PR·main·태그에서 Windows/macOS/Linux × Node 22/24로 검사해, 합계 **18개 CI 작업이 성공**했습니다. 각 작업에서 Claude 회귀 252개와 신뢰된 브라우저 fixture 45개가 통과했습니다. 환경별 제외와 실제 설치·공개 ZIP의 바이트 검증은 [릴리스 검증 JSON](https://github.com/Technoetic/harness20/releases/download/v4.0.0/verification.json)에 기록했습니다. 이 결과는 당시 기본20단계 소스의 릴리스 검증 범위에 한합니다. 실제 프로젝트의 20단계 완주나 v4.2.0의 새14단계 실행 결과를 보증하지 않습니다.
+**v4.0.0 당시 검증 근거:** 릴리스 커밋 `a6966675cb1f8dc90a2eb8d533bcb7f2664ec6e4`과 동일한 소스 트리를 PR·main·태그에서 Windows/macOS/Linux × Node 22/24로 검사해, 합계 **18개 CI 작업이 성공**했습니다. 각 작업에서 Claude 회귀 252개와 신뢰된 브라우저 fixture 45개가 통과했습니다. 환경별 제외와 실제 설치·공개 ZIP의 바이트 검증은 [릴리스 검증 JSON](https://github.com/Technoetic/harness14/releases/download/v4.0.0/verification.json)에 기록했습니다. 이 결과는 당시 기본20단계 소스의 릴리스 검증 범위에 한합니다. 실제 프로젝트의 20단계 완주나 v4.2.0의 새14단계 실행 결과를 보증하지 않습니다.
 
 [위험 10개별 통제·잔여 한계·향후 통합 조건](docs/SECURITY.md) · [의존성 검증 명령](docs/SECURITY.md#host-and-deployment-responsibilities): `npm --ignore-scripts run verify:security`
 
@@ -70,7 +72,8 @@ synthetic fixture, not an LLM or business-performance benchmark.
 
 ## Workflow profiles / 새14와 기존20·36·50
 
-저장소·플러그인 이름은 **harness20**입니다. 새 실행은 schema2
+공개 저장소 이름은 **harness14**입니다. 기존 설치와 명령의 호환성을 위해
+플러그인·마켓플레이스 ID는 **harness20**을 유지합니다. 새 실행은 schema2
 `planning-first-14-v1`의 **14단계**를 사용합니다. 이전 기본20의 step3–8을
 독립 단계에서 제거하고 환경 준비는 설계2의 마지막으로, 작업 단위 소유권과
 UTF-8 무BOM·LF 작성 규칙은 구현3으로, 실제 바이트 검사는 빌드4로 옮겼습니다.
@@ -198,7 +201,7 @@ codex plugin add harness20@harness20
 공개 저장소에서 Claude Code와 Codex 어댑터를 함께 설치할 수 있습니다.
 
 ```text
-codex plugin marketplace add Technoetic/harness20
+codex plugin marketplace add Technoetic/harness14
 codex plugin add harness20@harness20
 ```
 
@@ -662,13 +665,13 @@ Stop 훅은 문구가 아니라 progress.json 상태로 판정한다. 선택된 
 Claude Code 터미널에서 평소처럼 말 걸면 됩니다. 메인 에이전트가 슬래시 명령 절차를 안내해 줍니다.
 
 ```text
-harness20 플러그인을 깔아줘. Technoetic/harness20 레포에 있어.
+harness20 플러그인을 깔아줘. Technoetic/harness14 레포에 있어.
 ```
 
 Claude가 다음 2단계를 차례로 안내합니다 (사용자가 직접 입력):
 
 ```text
-/plugin marketplace add Technoetic/harness20
+/plugin marketplace add Technoetic/harness14
 /plugin install harness20@harness20
 ```
 
@@ -680,7 +683,7 @@ Claude가 다음 2단계를 차례로 안내합니다 (사용자가 직접 입�
 마켓플레이스 등록 → 설치 2단계:
 
 ```text
-/plugin marketplace add Technoetic/harness20
+/plugin marketplace add Technoetic/harness14
 /plugin install harness20@harness20
 ```
 
@@ -973,7 +976,7 @@ MIT License · Copyright (c) 2026 [Technoetic](https://github.com/Technoetic)
 
 <br/>
 
-[![Open in Claude Code](https://img.shields.io/badge/Open_in_Claude_Code-Plugin-191919?style=for-the-badge&logo=anthropic&logoColor=white)](https://github.com/Technoetic/harness20)
-[![Star this repo](https://img.shields.io/github/stars/Technoetic/harness20?style=for-the-badge&color=F59E0B)](https://github.com/Technoetic/harness20/stargazers)
+[![Open in Claude Code](https://img.shields.io/badge/Open_in_Claude_Code-Plugin-191919?style=for-the-badge&logo=anthropic&logoColor=white)](https://github.com/Technoetic/harness14)
+[![Star this repo](https://img.shields.io/github/stars/Technoetic/harness14?style=for-the-badge&color=F59E0B)](https://github.com/Technoetic/harness14/stargazers)
 
 </div>
