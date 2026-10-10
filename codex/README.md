@@ -1,10 +1,11 @@
-# harness20 for Codex
+# harness14 for Codex
 
 Harness20의 Codex 어댑터는 기획부터 시작하는 기본14 절차를 14개의 검증 가능한 단계로 실행하되, Codex의 정상 권한 확인과 명시적인 후크 신뢰 절차를 유지합니다. Claude Code 설치와 기존 동작은 [루트 안내서](../README.md)를 참고하세요.
 
 ## Workflow profiles / 새14와 기존20·36·50
 
-저장소·플러그인 이름은 **harness20**입니다. 새 실행은 schema2
+공개 저장소 이름은 **harness14**입니다. 기존 설치와 명령의 호환성을 위해
+플러그인·마켓플레이스 ID는 **harness20**을 유지합니다. 새 실행은 schema2
 `planning-first-14-v1`의 **14단계**를 사용합니다. 이전 기본20의 step3–8을
 독립 단계에서 제거하고 환경 준비는 설계2의 마지막으로, 작업 단위 소유권과
 UTF-8 무BOM·LF 작성 규칙은 구현3으로, 실제 바이트 검사는 빌드4로 옮겼습니다.
@@ -105,7 +106,7 @@ codex plugin add harness20@harness20
 공개 저장소에서 다음 경로로 설치할 수 있습니다.
 
 ```text
-codex plugin marketplace add Technoetic/harness20
+codex plugin marketplace add Technoetic/harness14
 codex plugin add harness20@harness20
 ```
 
