@@ -951,14 +951,37 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tests/security-regression.ps
 | 출처 | 무엇을 빌렸나 |
 |:---|:---|
 | [**Technoetic/claude-code-commands**](https://github.com/Technoetic/claude-code-commands) | **자매 레포** — harness20의 9회차 audit 패턴이 원래 어디서 왔는지 보여주는 1년치 슬래시 명령 20종 컬렉션 |
-| [MoAI-ADK](https://github.com/moai-research/MoAI) | @MX 4종 태그 시스템 · TRUST 5 게이트 · EARS SPEC 형식 |
+| [MoAI-ADK — 현재 공식 저장소](https://github.com/modu-ai/moai-adk) | 당시 MoAI-ADK 설계의 @MX 4종 태그 시스템 · TRUST 5 게이트 · EARS SPEC 형식을 참고. 링크는 현재 공개된 프로젝트 주소 |
 | [superpowers](https://github.com/obra/superpowers) | brainstorming · TDD · debugging 스킬 구조와 개발 절차를 참고. 적용 범위·승인은 호스트별 규약을 따름 |
 | [Claude Code 공식 hooks](https://docs.claude.com/en/docs/claude-code/hooks) | `{"decision":"block"}` 자동 재개 메커니즘 · PreToolUse `permissionDecision:"allow"` |
 | [Jev / TypeSafe AI — 공식 API](https://docs.typesafe.ai/api) | **실제 연동 서비스** — Noul·Choice·Score 직접 질문과 새14·기존36의 5개/legacy50의 7개 선택형 의미 판단. 생성·도구 실행·필수 검증은 호스트가 담당 ([직접 질문](docs/jev-first.md) · [단계별 검토](docs/jev-checkpoints.md)) |
 | [Aside — 공식 문서](https://docs.aside.com/) | **브라우저 검증 백엔드** — `aside repl`을 통한 화면·상호작용·스크린샷 확인. Playwright 사용이 제한된 환경을 지원하며 사용자 프로필 공유 등 제약을 기록 ([백엔드 안내](docs/BROWSER-TOOLS.md)) |
 | [axe-core (Deque Systems)](https://github.com/dequelabs/axe-core) | **자동 접근성 검사 엔진** — 두 브라우저 백엔드에서 WCAG 2/2.1 A·AA 규칙 검사에 사용. 자동 검사 범위의 결과이며 전체 접근성 준수를 보증하지 않음 |
 | [Playwright (Microsoft)](https://playwright.dev/) | **CI·사용이 허용된 PC의 브라우저 검증 백엔드** — 격리 Chromium 컨텍스트·라우팅·상호작용·스크린샷 검사. 의존성은 별도 `browser-verifier/`에 분리 ([백엔드 안내](docs/BROWSER-TOOLS.md)) |
+| [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) | **보안 설계 참고 기준** — 제공된 체크리스트의 적용 가능한 위험을 호스트 통제와 공격 회귀 검사에 대응. 공식 인증이나 전체 준수 보증은 아님 ([적용 범위](docs/SECURITY.md)) |
 | Obsidian vault | 6개 핵심 철학 · `_규칙/HARNESS-규칙.md` · `_규칙/NEW-WORK-규칙.md` |
+
+### 논문·경험 기억·실행 비교
+
+아래는 실제 설계·구현 문서에 명시된 참고 출처와 흡수한 범위입니다. 논문의 전체 알고리즘이나 원 프로젝트의 실행 환경을 이식한 것은 아닙니다. 논문 벤치마크 성능을 재현했다는 주장도 하지 않습니다.
+
+| 논문·공식 오픈소스 | 참고·흡수한 내용 | 현재 구현 범위 |
+|:---|:---|:---|
+| **SimpleMem** — [논문](https://arxiv.org/abs/2601.02553) · [공식 코드](https://github.com/aiming-lab/SimpleMem) | 실패·수정 교훈을 검증 근거와 함께 구조화하고 동일 내용의 중복 제거 | 정규화한 기록의 해시로 정확한 중복을 판별. 전체 기억 압축 알고리즘은 구현하지 않음 |
+| **A-MEM** — [논문](https://arxiv.org/abs/2502.12110) · [공식 코드](https://github.com/WujiangXu/A-mem-sys) | 관련 교훈·근거 연결과 이전 교훈의 대체 관계 | 명시적으로 등록한 연결만 사용. 자율적인 기억 진화는 구현하지 않음 |
+| **Zep / Graphiti** — [논문](https://arxiv.org/abs/2501.13956) · [공식 코드](https://github.com/getzep/graphiti) | 유효기간·출처·대체·폐기를 확인해 적용 가능한 교훈 선택 | 로컬 기록의 적용 가능성 검사. 외부 시간 지식 그래프 서버는 사용하지 않음 |
+| **qmd** — [공식 코드](https://github.com/tobi/qmd) | BM25 검색과 순위 결합을 통한 후보 선택 | 결정적 어휘 검색과 순위 결합. 벡터 임베딩·학습형 재순위 모델은 사용하지 않음 |
+| **HippoRAG 2** — [논문](https://arxiv.org/abs/2502.14802) · [공식 코드](https://github.com/OSU-NLP-Group/HippoRAG) | 명시적으로 연결된 출처를 따라 관련 맥락 확장 | 최대 두 단계의 제한된 참조 탐색. 지식 그래프·PPR·원 검색 파이프라인은 구현하지 않음 |
+| **Letta Code** — [공식 코드](https://github.com/letta-ai/letta-code) | 검증된 교훈의 영속 저장과 결과의 분모를 포함한 평가 | 로컬 교훈·관측 결과 기록. 원 에이전트 런타임이나 모델 연동은 이식하지 않음 |
+| **MemoryArena** — [논문](https://arxiv.org/abs/2602.16313) · [공식 코드](https://github.com/ZexueHe/MemoryArena) | 같은 행동 예산에서 기억 사용 전후의 다음 작업 비교 | 공개 합성 시나리오의 오프라인 비교. 원 데이터셋·논문 점수 재현은 아님 |
+| **LongMemEval V2** — [논문](https://arxiv.org/abs/2605.12493) · [공식 코드](https://github.com/xiaowu0162/LongMemEval-V2) | 바뀐 사실·근거 부족·답변 보류 평가 | 변경·불충분한 근거 시나리오 검사. 원 데이터셋·논문 점수 재현은 아님 |
+| **MINJA** — [논문](https://arxiv.org/abs/2503.03704) · [공식 코드](https://github.com/dsh3n77/MINJA) | 오염된 기억·출처 철회·남은 기록 검사 | 제한된 공격 회귀 시나리오. 모든 기억 주입 공격을 막는다는 보장은 아님 |
+| **Tower / towersource** — [참고 커밋](https://github.com/moatai-io/towersource/tree/76268c2969f20ccbea66d6582206c26e81ba7983) | 변경할 수 없는 실행 조건·환경 식별, 같은 조건의 행동 비교, 구조화된 실행 이력 | 저장된 관측의 오프라인 비교와 민감 본문 없는 완료 기록 추출로 재설계. Tower 코드·의존성·실시간 모델 평가기는 이식하지 않음 |
+| **agentic-vault v0.19.0** — [기억 패턴 매핑](https://github.com/Technoetic/agentic-vault/blob/v0.19.0/docs/memory-patterns.md) | 논문·프로젝트의 아이디어를 검증 가능한 기억 패턴으로 대응한 설계 | 하네스의 실패·QA·출처·교훈에 맞춰 재설계한 참고 경로 |
+
+논문·프로젝트별 구현 근거와 한계는 [경험 기억 설계](docs/experience-memory.md#evidence-and-scoped-references), Tower의 정확한 원본 파일과 Apache-2.0 출처는 [실행 비교·이력 설계](docs/workflow-trials.md#trace-boundaries-and-tower-provenance)에 연결했습니다.
+
+기존 MoAI 링크 `moai-research/MoAI`는 2026-10-11 확인 시 404였습니다. 위 표에는 현재 공개된 `modu-ai/moai-adk` 주소를 표시하며, 이전 저장소와의 이동 경로가 확인됐다는 뜻은 아닙니다.
 
 ---
 
